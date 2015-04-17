@@ -1,0 +1,12 @@
+
+mpc_data*.txt
+sim_data*.txt
+mpc.cpp
+sim.cpp
+mpc_RUN.*
+sim_RUN.*
+integrate_chain.*
+acado_MPCstep.*
+
+export_MPC/*
+export_SIM/*
