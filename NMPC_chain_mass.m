@@ -22,7 +22,7 @@ Ts = 0.1;                     % sampling time [s]
 
 N  = 50;                      % number of shooting intervals
 
-M  = 2;                       % number of masses in chain (data available from 1 to 4 masses)
+NMASS = 4;                    % number of masses in chain (data available from 3 to 6 masses)
 
 INITMODE = 1;                 % 1: initialize lin. at initial condition
                               % 2: initialize lin. at reference
@@ -37,6 +37,7 @@ if strcmp(ACADOSOLVER,'qpDUNES') == 0 && strcmp(ACADOSOLVER,'qpOASES') == 0 && s
     error('Invalid solver name.')
 end
 
+M  = NMASS - 2;     % number of intermediate masses
 NX = (2*M + 1)*3;   % differential states
 NU = 3;             % control inputs
 
@@ -178,8 +179,8 @@ minACADOtLog = [];
 
 for iRUNS = 1:NRUNS
     
-    eval(['X0  = textread(' '''' 'chain_mass_model_dist_M' num2str(M) '.txt' '''', ', ''''' ');']);
-    eval(['ref = textread(' '''' 'chain_mass_model_eq_M' num2str(M) '.txt' '''', ', ''''' ');']);
+    eval(['X0  = textread(' '''' 'chain_mass_model_dist_M' num2str(NMASS) '.txt' '''', ', ''''' ');']);
+    eval(['ref = textread(' '''' 'chain_mass_model_eq_M' num2str(NMASS) '.txt' '''', ', ''''' ');']);
     
     X0 = [X0(end-3+1:end); X0(1:end-3)];
     ref= [ref(end-3+1:end); ref(1:end-3)];
