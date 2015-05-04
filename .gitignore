@@ -5,11 +5,6 @@
 *.mexmaci64
 *.m~
 
-# build
-build/*
-**/build/*
-CMakeCache.txt
-**/CMakeFiles/*
 
 # eclipse
 .cproject
@@ -24,9 +19,8 @@ mpc_RUN.*
 sim_RUN.*
 integrate_chain.*
 acado_MPCstep.*
-
-#export_MPC/*
-#export_SIM/*
+export_MPC/*
+export_SIM/*
 
 # mac
 *.DS_Store
